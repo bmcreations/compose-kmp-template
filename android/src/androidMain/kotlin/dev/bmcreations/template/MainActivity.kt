@@ -8,6 +8,9 @@ import dev.bmcreations.template.MainView
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         setContent {
             MainView()
         }

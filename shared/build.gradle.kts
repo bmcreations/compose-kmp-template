@@ -15,7 +15,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "shared"
@@ -31,6 +31,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.material)
+                implementation(compose.materialIconsExtended)
                 implementation(compose.ui)
                 implementation(compose.animation)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
@@ -67,6 +68,8 @@ android {
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
+    // loaded for android fonts
+    sourceSets["main"].res.srcDirs("src/commonMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {

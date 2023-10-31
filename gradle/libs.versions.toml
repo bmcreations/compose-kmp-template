@@ -1,11 +1,11 @@
 [versions]
 android-compileSdk = "34"
 android-minSdk = "24"
-agp = "8.3.0-alpha09"
+agp = "8.3.0-alpha11"
 kotlin = "1.9.10"
 compose-plugin = "1.5.10-rc01"
 compose-compiler = "1.5.3"
-voyager = "1.0.0-rc05"
+voyager = "1.0.0-rc07"
 kotlinInject = "0.6.1"
 
 [libraries]

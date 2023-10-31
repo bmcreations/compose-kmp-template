@@ -1,5 +1,6 @@
-package dev.bmcreations.template.utils
+package dev.bmcreations.template.viewmodel
 
+import cafe.adriel.voyager.core.model.ScreenModel
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.ViewModelScope
 import com.rickclephas.kmm.viewmodel.coroutineScope
@@ -22,7 +23,7 @@ abstract class BaseViewModel<ViewState : Any, Event : Any>(
     initialState: ViewState,
     private val updateStateForEvent: (Event) -> (ViewState.() -> ViewState),
     private val defaultDispatcher: CoroutineContext = Dispatchers.Default,
-) : KMMViewModel() {
+) : KMMViewModel(), ScreenModel {
 
     private val _eventFlow: MutableSharedFlow<Event> = MutableSharedFlow()
     val eventFlow: SharedFlow<Event> = _eventFlow.asSharedFlow()

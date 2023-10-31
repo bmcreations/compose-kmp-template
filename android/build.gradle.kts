@@ -19,7 +19,7 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     namespace = (findProperty("project.namespace") as String)
 
-    sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()

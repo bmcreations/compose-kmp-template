@@ -10,5 +10,3 @@ fun App() {
         AppNavigation()
     }
 }
-
-expect fun getPlatformName(): String

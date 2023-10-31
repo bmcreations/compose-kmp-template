@@ -1,9 +1,9 @@
 package dev.bmcreations.template.screens.home
 
 import com.rickclephas.kmm.viewmodel.coroutineScope
-import dev.bmcreations.template.getPlatformName
-import dev.bmcreations.template.utils.BaseViewModel
+import dev.bmcreations.template.viewmodel.BaseViewModel
 import dev.bmcreations.template.utils.DispatcherProvider
+import dev.bmcreations.template.utils.getPlatformName
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
