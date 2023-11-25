@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -13,13 +14,14 @@ kotlin {
     androidTarget()
 
     listOf(
-        iosX64(),
+//        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "shared"
             isStatic = true
+            linkerOpts("-ObjC")
         }
     }
 
@@ -38,25 +40,24 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(libs.voyager.navigator)
                 implementation(libs.voyager.transitions)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.kotlinx.serialization.json)
                 implementation(libs.kotlin.inject.runtime)
                 implementation(libs.kotlin.viewmodel.core)
                 implementation(libs.imageloader)
                 implementation(libs.logging)
-            }
-
-            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-
-            project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
-                if(name != "kspCommonMainKotlinMetadata") {
-                    dependsOn("kspCommonMainKotlinMetadata")
-                }
+                implementation(libs.firebase.auth)
+                implementation(libs.settings)
+                implementation(libs.settings.coroutines)
             }
         }
         val androidMain by getting {
             dependencies {
+                api(libs.android.threeten)
                 api(libs.androidx.activity.compose)
                 api(libs.androidx.core)
                 api(libs.androidx.appcompat)
+                api(libs.firebase.auth)
             }
         }
     }
@@ -91,7 +92,7 @@ dependencies {
     // `ksp libs.kotlinInject.compiler` in the dependencies block of each source set
     // https://github.com/google/ksp/pull/1021
 //    add("kspIosX64", libs.kotlin.inject.compiler)
-//    add("kspIosArm64", libs.kotlin.inject.compiler)
-//    add("kspIosSimulatorArm64", libs.kotlin.inject.compiler)
-    add("kspCommonMainMetadata", libs.kotlin.inject.compiler)
+    add("kspIosArm64", libs.kotlin.inject.compiler)
+    add("kspIosSimulatorArm64", libs.kotlin.inject.compiler)
+    add("kspAndroid", libs.kotlin.inject.compiler)
 }

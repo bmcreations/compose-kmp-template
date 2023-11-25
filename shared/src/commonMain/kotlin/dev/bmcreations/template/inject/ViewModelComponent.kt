@@ -5,7 +5,9 @@ import dev.bmcreations.template.screens.home.HomeViewModel
 import me.tatarka.inject.annotations.Component
 
 @Component
-abstract class ViewModelComponent: AppComponent() {
+abstract class ViewModelComponent(
+    @Component val authComponent: AuthenticationComponent
+): DataComponent() {
     abstract val homeViewModel: HomeViewModel
 
     inline fun <reified T: ScreenModel> getViewModel(): ScreenModel {

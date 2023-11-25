@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "162191997563",
+    "project_id": "compose-multiplatform-template",
+    "storage_bucket": "compose-multiplatform-template.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162191997563:android:96374e1ca91d81e77180de",
+        "android_client_info": {
+          "package_name": "dev.bmcreations.template"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjjMzQGPhtwx4rtW218pEQaYkEdvmAZb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

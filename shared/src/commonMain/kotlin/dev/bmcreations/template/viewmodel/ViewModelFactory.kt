@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
+import dev.bmcreations.template.inject.ApplicationComponent
+import dev.bmcreations.template.inject.LocalAppComponent
 import dev.bmcreations.template.inject.ViewModelComponent
 import dev.bmcreations.template.inject.create
 import kotlin.reflect.KClass
@@ -28,8 +30,9 @@ inline fun <reified VM : ScreenModel> viewModelFactory(
 
 @Composable
 inline fun <reified VM : ScreenModel> Screen.screenViewModel(
+    applicationComponent: ApplicationComponent = LocalAppComponent.current,
     factory: ViewModelFactory<VM> = viewModelFactory {
-        with(ViewModelComponent::class.create()) {
+        with(ViewModelComponent::class.create(applicationComponent)) {
             getViewModel<VM>()
         } as VM
     }

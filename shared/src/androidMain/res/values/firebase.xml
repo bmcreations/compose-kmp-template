@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="google_web_client_id" tools:ignore="TypographyDashes">ENTER_HERE_FROM_FIREBASE</string>
+    <string name="google_access_token">ENTER_HERE_FROM_FIREBASE</string>
+</resources>
